@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "fc976219-4e32-4255-a7ae-399f3ddb1427",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "earth_stonefist1_positive2": {
+      "ver": "1.0.3",
+      "uuid": "71df7c06-7801-467e-913f-3e6df116f7df",
+      "rawTextureUuid": "fc976219-4e32-4255-a7ae-399f3ddb1427",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 42,
+      "height": 23,
+      "rawWidth": 42,
+      "rawHeight": 23,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

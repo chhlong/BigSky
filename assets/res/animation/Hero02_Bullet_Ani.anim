@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Hero02_Bullet_Ani",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.25,
+  "sample": 4,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "5e295473-8433-4757-b85f-f634d508d9d2"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "fd710a63-aa25-4ff7-aa8d-a9e789e6f79d"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "2b1f949c-a215-41d8-8c1d-51cc98d2b3dc"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "c1cfb555-368d-45df-8c08-6adc2fd1e387"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "254f1231-ae82-4ca7-9806-bcc48290e99b"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

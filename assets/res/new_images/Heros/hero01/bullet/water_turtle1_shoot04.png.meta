@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "142669d4-132b-45af-bef0-99c0f025c54a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "water_turtle1_shoot04": {
+      "ver": "1.0.3",
+      "uuid": "2bdfd747-aea8-40e0-af71-33dbce63d39f",
+      "rawTextureUuid": "142669d4-132b-45af-bef0-99c0f025c54a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": -0.5,
+      "trimX": 3,
+      "trimY": 1,
+      "width": 57,
+      "height": 44,
+      "rawWidth": 60,
+      "rawHeight": 45,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "31b5df6c-b9a0-48bc-b59b-29cc36863d34",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "earth_stonesnake_positive1": {
+      "ver": "1.0.3",
+      "uuid": "4a018b2c-0104-4126-973c-021ffa93f3da",
+      "rawTextureUuid": "31b5df6c-b9a0-48bc-b59b-29cc36863d34",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 36,
+      "height": 78,
+      "rawWidth": 36,
+      "rawHeight": 78,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

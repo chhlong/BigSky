@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Monster01_Ani",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 4,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "03402065-0c72-4c76-adc5-70cb297669f8"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "71df7c06-7801-467e-913f-3e6df116f7df"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "a03ffb5b-d34a-4ff7-8055-0393d3baa57f"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "33192ba7-abd9-4e24-8408-966c1757d16f"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
