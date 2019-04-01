@@ -59,13 +59,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -100,
-      "y": -300,
+      "y": 120,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 3,
-      "y": 3,
+      "x": 1.5,
+      "y": 1.5,
       "z": 1
     },
     "_rotationX": -90,
@@ -120,7 +120,7 @@
     "_enabled": true,
     "_type": 2,
     "_allowSleep": true,
-    "_gravityScale": -0.2,
+    "_gravityScale": -1,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
