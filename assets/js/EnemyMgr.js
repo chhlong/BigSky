@@ -17,7 +17,7 @@ cc.Class({
         {
             this.AddEnemy(Global.DataBus.curBossName);
         }
-        else if(Global.DataBus.gameBegin && cc.director.getTotalFrames() % 120 == 0)
+        else if(Global.DataBus.gameBegin && cc.director.getTotalFrames() % 30 == 0)
         {
             this.AddEnemy(Global.DataBus.curMonsterName);
         }
