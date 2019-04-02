@@ -29,7 +29,7 @@
         "__id__": 117
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 0,
     "_components": [],
     "_prefab": null,
@@ -53,8 +53,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 0.1979736328125,
+      "y": 0.1979736328125,
       "z": 1
     },
     "_quat": {
@@ -99,7 +99,7 @@
       }
     ],
     "_active": true,
-    "_level": 0,
+    "_level": 1,
     "_components": [
       {
         "__id__": 116
@@ -5165,7 +5165,7 @@
   {
     "__type__": "cc.Node",
     "_name": "GameOver",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 1
     },
@@ -5252,8 +5252,8 @@
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 255,
-      "b": 255,
+      "g": 50,
+      "b": 50,
       "a": 255
     },
     "_contentSize": {
