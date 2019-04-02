@@ -12,7 +12,7 @@ cc.Class({
     },
 
     update: function() {
-        if(Global.DataBus.gameBegin && cc.director.getTotalFrames() % 30 == 0)
+        if(Global.DataBus.gameBegin && cc.director.getTotalFrames() % 10 == 0)
         {
             this.AddBullet();
         }

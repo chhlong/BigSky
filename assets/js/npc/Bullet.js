@@ -13,6 +13,7 @@ cc.Class({
             type: cc.Node,
         },
 
+        damage : 10,
 
     },
 
@@ -22,10 +23,9 @@ cc.Class({
     start: function() {
         this.player = cc.find("Player")
         this.node.position = cc.v2(this.player.position.x, this.player.position.y + 60);
-        this.rigidbody.linearVelocity = cc.v2(0, 200);
+        this.rigidbody.linearVelocity = cc.v2(0, 600);
 
         var anim = this.getComponent(cc.Animation);
-        cc.log("anim._clips[0]._name = " + anim._clips[0]._name)
         anim.play(anim._clips[0]._name)
     },
 
@@ -36,9 +36,21 @@ cc.Class({
     },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        Global.ScoreLbl.AddScore()
+        var enemy = otherCollider.getComponent("Enemy")
+        enemy.hp = enemy.hp - this.damage
+        if (enemy.hp <= 0) 
+        {
+            Global.ScoreLbl.AddScore()
+            otherCollider.node.destroy()
+        }
+        else
+        {
+            var redColor = (enemy.hp / enemy.maxHp) * 255
+            enemy.node.color = new cc.Color(255, redColor, redColor);
+            enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
+        }
         this.node.destroy()
-        otherCollider.node.destroy()
+
     },
 
 });

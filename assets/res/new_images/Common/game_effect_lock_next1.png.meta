@@ -5,5 +5,27 @@
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
-  "subMetas": {}
+  "subMetas": {
+    "game_effect_lock_next1": {
+      "ver": "1.0.3",
+      "uuid": "38b8ef11-fa27-4144-ab5c-62bcc0db8fc2",
+      "rawTextureUuid": "3c33a9c7-2599-47fc-8c83-7a623eeef58f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 72,
+      "height": 82,
+      "rawWidth": 72,
+      "rawHeight": 82,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
 }

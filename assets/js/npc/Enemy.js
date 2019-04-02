@@ -6,6 +6,8 @@ cc.Class({
             default: null,
             type: cc.RigidBody,
         },
+        hp : 50,
+        maxHp : 50,
     },
 
     onLoad: function () {

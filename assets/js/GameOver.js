@@ -43,6 +43,7 @@ cc.Class({
     	this.node.active = false
 		this.player2.setPosition(540, 630)
     	this.GameStart.StartShowMainUI()
+        this.ScoreLbl.getComponent("Score").ResetScore()
     },
 
     finishGame: function(){

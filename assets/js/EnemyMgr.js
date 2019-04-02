@@ -15,20 +15,22 @@ cc.Class({
     update: function() {
         if(Global.DataBus.gameBegin && cc.director.getTotalFrames() % 240 == 0)
         {
-            this.AddEnemy(Global.DataBus.curBossName);
+            this.AddEnemy(Global.DataBus.curBossName, 60);
         }
         else if(Global.DataBus.gameBegin && cc.director.getTotalFrames() % 30 == 0)
         {
-            this.AddEnemy(Global.DataBus.curMonsterName);
+            this.AddEnemy(Global.DataBus.curMonsterName, 30);
         }
         
     },
 
-    AddEnemy: function(prefabName) {
+    AddEnemy: function(prefabName, hp) {
         var self = this;
         cc.loader.loadRes("prefabs/" + prefabName, function (err, prefab) {
             var newEnemy = cc.instantiate(prefab);
             newEnemy.parent = self.enemies;
+            newEnemy.getComponent("Enemy").hp = hp;
+            newEnemy.getComponent("Enemy").maxHp = hp;
         });
     },
 

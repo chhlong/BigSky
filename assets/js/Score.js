@@ -19,4 +19,10 @@ cc.Class({
         cc.log("AddScore: " + this.count)
     },
 
+    ResetScore: function() {
+        this.count = 0
+        this.score.string  = "Score : " + this.count
+        cc.log("ResetScore: " + this.count)
+    },
+
 });
