@@ -8,7 +8,7 @@ cc.Class({
       gameOver   : false,
       gameBegin : false,
 
-      curPlayerName : "Hero02",
+      curPlayerName : "Hero01",
 
       curMonsterName : "Monster01",
       curBossName : "Monster02",

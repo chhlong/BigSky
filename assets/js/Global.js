@@ -3,6 +3,7 @@ window.Global = {
   performWithDelay : null,
   ScoreLbl : null,
   CurHero : null,
+  BoomMgr : null,
 }
 
 window.Global.performWithDelay = function(target, delay, callback){

@@ -41,6 +41,9 @@ cc.Class({
         if (enemy.hp <= 0) 
         {
             Global.ScoreLbl.AddScore()
+            var pos = otherCollider.node.position
+            cc.log("pos.x = "+ pos.x + ",pos.y = " + pos.y)
+            Global.BoomMgr.AddBoom(pos.x, pos.y)
             otherCollider.node.destroy()
         }
         else

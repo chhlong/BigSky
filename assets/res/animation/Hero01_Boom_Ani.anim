@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Hero01_Boom_Ani",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.75,
+  "sample": 8,
+  "speed": 1,
+  "wrapMode": "1",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "0ff0dbd7-d8e5-49c2-b455-52f0c7c28ff9"
+            }
+          },
+          {
+            "frame": 0.125,
+            "value": {
+              "__uuid__": "9cdc88d1-421c-4e97-a860-93657ef1d652"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "f7e9ffbb-d07c-46e0-8348-d8635aeacce2"
+            }
+          },
+          {
+            "frame": 0.375,
+            "value": {
+              "__uuid__": "9f4da1c2-0142-4513-8784-f42fac6e3ae8"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "eaf29fc4-f4a5-4c7a-98d4-0b8bb8b621f8"
+            }
+          },
+          {
+            "frame": 0.625,
+            "value": {
+              "__uuid__": "7de19fca-3184-4001-93b9-fbdf3383af2a"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.75,
+      "func": "DestroySelf",
+      "params": []
+    }
+  ]
+}
