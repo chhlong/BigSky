@@ -24,10 +24,65 @@ cc.Class({
           default : null,
           type : cc.Node,
        },
+
+       UserPic :{
+          default : null,
+          type : cc.Sprite,
+       },
+
+       UserNameLbl :{
+          default : null,
+          type : cc.Label,
+       },
+    },
+
+    setUserInfo: function(nickName, avatarUrl){
+      this.UserNameLbl.string = nickName
+      var self = this
+      cc.loader.load({url: avatarUrl, type: 'png'}, function (err, tex) {
+        var userpic = new cc.SpriteFrame(); 
+        userpic.setTexture(tex)
+        self.UserPic.spriteFrame = userpic
+      });
+    },
+
+    getUserInfo: function(){
+      var self = this
+      wx.getUserInfo({
+        success(res) {
+          const userInfo = res.userInfo
+          const nickName = userInfo.nickName
+          const avatarUrl = userInfo.avatarUrl
+          const gender = userInfo.gender // 性别 0：未知、1：男、2：女
+          const province = userInfo.province
+          const city = userInfo.city
+          const country = userInfo.country
+          self.setUserInfo(nickName, avatarUrl)
+        }
+      })
     },
 
     onLoad: function () {
-        this.onRegisteredEvent();
+      console.log("CC_WECHATGAME==========" + CC_WECHATGAME)
+      var self = this
+      if(CC_WECHATGAME){
+        wx.getSetting({
+          success(res) {
+            if (!res.authSetting['scope.userInfo']) {
+              wx.authorize({
+                scope: 'scope.userInfo',
+                success() {
+                  self.getUserInfo()
+                }
+              })
+            }
+            else{
+              self.getUserInfo()
+            }
+          }
+        })
+      }
+      this.onRegisteredEvent();
     },
 
     onRegisteredEvent: function () {
