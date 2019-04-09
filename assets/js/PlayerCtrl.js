@@ -26,7 +26,8 @@ cc.Class({
             var newEntry = cc.instantiate(prefab);
             newEntry.parent = self.node;
             newEntry.position = cc.v2(0,0)
-            Global.CurHero = newEntry
+            Global.curPlayer = newEntry.getComponent("Player")
+            cc.log("Global.curPlayer  = ", Global.curPlayer.bulletId)
         });
     },
 
@@ -46,12 +47,12 @@ cc.Class({
 
     changeHero: function(playerName) {
         cc.log("playerName = " + playerName)
-        cc.log("Global.CurHero = " + Global.CurHero)
-        if(Global.CurHero != null && Global.CurHero.name != playerName)
+        cc.log("Global.curPlayer = " + Global.curPlayer)
+        if(Global.curPlayer != null && Global.curPlayer.node.name != playerName)
         {
-            cc.log("11Global.CurHero = " + Global.CurHero.name)
-            Global.CurHero.destroy()
-            Global.CurHero = null;
+            cc.log("11Global.curPlayer = " + Global.curPlayer.node.name)
+            Global.curPlayer.node.destroy()
+            Global.curPlayer = null;
             Global.DataBus.curPlayerName = playerName
             this.AddPlayer(playerName)
         }
