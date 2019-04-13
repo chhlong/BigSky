@@ -1,3 +1,5 @@
+var Player = require("Bullet");
+
 
 cc.Class({
     extends: cc.Component,
@@ -29,7 +31,7 @@ cc.Class({
         anim.play(anim._clips[0]._name)
     },
 
-    update: function() {
+    update: function(dt) {
     	if ( this.node.position.y > 1960 ) {
             this.node.destroy()
     	}
@@ -42,15 +44,19 @@ cc.Class({
         {
             Global.ScoreLbl.AddScore()
             var pos = otherCollider.node.position
-            cc.log("pos.x = "+ pos.x + ",pos.y = " + pos.y)
+            // cc.log("pos.x = "+ pos.x + ",pos.y = " + pos.y)
             Global.BoomMgr.AddBoom(pos.x, pos.y)
             otherCollider.node.destroy()
+
         }
         else
         {
             var redColor = (enemy.hp / enemy.maxHp) * 255
             enemy.node.color = new cc.Color(255, redColor, redColor);
             enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
+        }
+        if(CC_WECHATGAME){
+                wx.vibrateShort()
         }
         this.node.destroy()
 

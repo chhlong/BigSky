@@ -1,3 +1,5 @@
+var Player = require("Player")
+
 cc.Class({
     extends: cc.Component,
 
@@ -12,7 +14,7 @@ cc.Class({
             type: cc.Node,
         },
 
-        player2: {
+        playerNode: {
             default: null,
             type: cc.Node,
         },
@@ -41,9 +43,15 @@ cc.Class({
     onClickEvent: function() {
     	cc.log("onClickEvent")
     	this.node.active = false
-		this.player2.setPosition(540, 630)
+		this.playerNode.setPosition(540, 630)
     	this.GameStart.StartShowMainUI()
         this.ScoreLbl.getComponent("Score").ResetScore()
+        Global.curPlayer.skillId += 1
+        if(Global.curPlayer.skillId > 3){
+            Global.curPlayer.skillId = 1
+        }
+        cc.log("Global.curPlayer.skillId = " + Global.curPlayer.skillId )
+        Global.BulletMgr.SetData()
     },
 
     finishGame: function(){

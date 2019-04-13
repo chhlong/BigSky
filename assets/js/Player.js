@@ -15,7 +15,7 @@ cc.Class({
         var anim = this.getComponent(cc.Animation);
         anim.play(this.node.name + "_Ani")
         this.bulletId = 0
-        this.skillId = 1
+        this.skillId = 2
         Global.BulletMgr.SetData()
     },
 

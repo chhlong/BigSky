@@ -48,13 +48,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 88,
-      "height": 88
+      "width": 180,
+      "height": 1920
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 0
     },
     "_position": {
       "__type__": "cc.Vec3",
@@ -64,18 +64,18 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2.25,
-      "y": 2.25,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
-    "_rotationX": -90,
-    "_rotationY": -90,
+    "_rotationX": 0,
+    "_rotationY": 0,
     "_quat": {
       "__type__": "cc.Quat",
       "x": 0,
       "y": 0,
-      "z": 0.7071067811865475,
-      "w": 0.7071067811865476
+      "z": 0,
+      "w": 1
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -91,10 +91,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "543c955b-e6c6-40f5-95c8-b22afca3af89"
+      "__uuid__": "85d3e7b0-a060-4347-bbe1-1ec2944ec508"
     },
-    "_type": 0,
-    "_sizeMode": 1,
+    "_type": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -118,9 +118,9 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_type": 2,
+    "_type": 0,
     "_allowSleep": true,
-    "_gravityScale": -0.1,
+    "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
@@ -131,7 +131,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": true,
     "enabledContactListener": true,
-    "bullet": true,
+    "bullet": false,
     "awakeOnLoad": true,
     "_id": ""
   },
@@ -145,43 +145,24 @@
     "_enabled": true,
     "tag": 0,
     "_density": 1,
-    "_sensor": false,
+    "_sensor": true,
     "_friction": 0.2,
     "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": 960
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 88,
-      "height": 88
+      "width": 150,
+      "height": 1920
     },
     "_id": ""
   },
   {
-    "__type__": "cc.Animation",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": false,
-    "_defaultClip": {
-      "__uuid__": "b7bc807a-4f69-4c84-a128-a58f234432c9"
-    },
-    "_clips": [
-      {
-        "__uuid__": "b7bc807a-4f69-4c84-a128-a58f234432c9"
-      }
-    ],
-    "playOnLoad": false,
-    "_id": ""
-  },
-  {
-    "__type__": "9ed3e6PjxhC94lSyoGt3k8m",
+    "__type__": "a3762obZllE4po78wTo9CwS",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -193,6 +174,28 @@
     },
     "player": null,
     "damage": 10,
+    "timer": 0,
+    "damageTimer": 0,
+    "enemyDic": [],
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "65dc7eea-1507-4d84-b502-18c0725eb58c"
+    },
+    "_clips": [
+      {
+        "__uuid__": "65dc7eea-1507-4d84-b502-18c0725eb58c"
+      }
+    ],
+    "playOnLoad": false,
     "_id": ""
   },
   {
@@ -201,7 +204,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "35501658-7fbb-4e0d-9c12-978d21d790a3"
+      "__uuid__": "cbb3076c-d490-4d76-9a11-21f7ed9fb546"
     },
     "fileId": "83/IAwhhZHaJOkUxgN7+Di",
     "sync": false

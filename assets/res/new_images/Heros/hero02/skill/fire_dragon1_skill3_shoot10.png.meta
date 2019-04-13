@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "e39148dd-75fd-44bf-8339-f9dcb89d460d",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "fire_dragon1_skill3_shoot10": {
+      "ver": "1.0.3",
+      "uuid": "44c9f465-9c69-41e1-8085-4e62fd5e5725",
+      "rawTextureUuid": "e39148dd-75fd-44bf-8339-f9dcb89d460d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 3,
+      "offsetY": -4.5,
+      "trimX": 20,
+      "trimY": 15,
+      "width": 166,
+      "height": 179,
+      "rawWidth": 200,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -17,19 +17,42 @@
       true,
       false,
       true,
+      true,
+      null,
       true
     ],
     [
       false,
       true,
       true,
-      false
+      false,
+      null,
+      null,
+      true
     ],
     [
       false,
       false,
       true,
       false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
       false
     ]
   ],
@@ -53,7 +76,9 @@
     "Player",
     "Enemy",
     "Wall",
-    "Bullet"
+    "Bullet",
+    "Ground",
+    "Bullet2"
   ],
   "last-module-event-record-time": 1554827197922,
   "simulator-orientation": false,
@@ -61,7 +86,6 @@
     "height": 640,
     "width": 960
   },
-  "start-scene": "current",
   "use-customize-simulator": true,
   "use-project-simulator-setting": false
 }

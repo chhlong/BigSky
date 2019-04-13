@@ -41,6 +41,7 @@ cc.Class({
         this._skillcdTime = window.Global.skillConfig[sid].cdTime
         this._skilldurTimer = 0
         this._skilldurTime = window.Global.skillConfig[bid].durTime
+        this.enabled = true
         cc.log("this._skillcdTime = " + this._skillcdTime)
         cc.log("this._skilldurTime = " + this._skilldurTime)
     },
@@ -49,12 +50,7 @@ cc.Class({
         if(!Global.DataBus.gameBegin || Global.curPlayer == null) {
             return
         }
-        this._timer += dt;
-        if ( this._timer >= this._interval )
-        {
-            this.AddSkill(this._bid)
-            this._timer = 0
-        }
+        
         this._skillcdTimer -= dt
         if(this._skillcdTimer < 0)
         {
@@ -80,7 +76,16 @@ cc.Class({
                 this._skillTimer = 0
             }
         }
-        else if(this._skilldurTimer == 0 && this._skillcdTimer  == 0)
+        else
+        {
+            this._timer += dt;
+            if ( this._timer >= this._interval )
+            {
+                this.AddSkill(this._bid)
+                this._timer = 0
+            }
+        }
+        if(this._skilldurTimer == 0 && this._skillcdTimer  == 0)
         {
             this._skillcdTimer = this._skillcdTime
         }

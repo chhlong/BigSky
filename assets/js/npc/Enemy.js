@@ -38,6 +38,9 @@ cc.Class({
     onBeginContact: function (contact, selfCollider, otherCollider) {
     	if(otherCollider.node.name == "Hero01" || otherCollider.node.name == "Hero02")
     	{
+            if(CC_WECHATGAME){
+                wx.vibrateShort()
+            }
             var gameOver = cc.find("GameOver").getComponent("GameOver")
             gameOver.finishGame()
     	}
