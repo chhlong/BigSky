@@ -12,10 +12,28 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        
+         speed: cc.v2(0,0),
     },
 
-    start () {
+    onLoad() {
+         // open Accelerometer
+        console.log("=============onLoad,x,y",this.speed.x,this.speed.y)
+        cc.systemEvent.setAccelerometerEnabled(true);
+        cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
+    },
+
+    // onLoad: function () {
+    //     this.onRegisteredEvent();
+    // },
+
+    onDeviceMotionEvent(event) { 
+        //log event
+        console.log("event,x,y",event.acc.x,event.acc.y)
+        this.speed.x = -event.acc.x;
+        this.speed.y = event.acc.y;
+    },
+
+    start() {
         this.AddPlayer(Global.DataBus.curPlayerName)
     },
 
@@ -31,17 +49,52 @@ cc.Class({
         });
     },
 
-    onLoad: function () {
-        this.onRegisteredEvent();
-    },
+    
 
     onRegisteredEvent: function () {
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onPlayAnimation.bind(this));
     },
 
+    update: function(dt){
+        if(Global.DataBus.gameBegin){
+            var x = this.node.position.x + this.speed.x*50
+            // var y = this.node.position.y + this.speed.y*100
+            if(x > 1080){
+                x = 1080
+            }
+            else if(x < 0){
+                x = 0
+            }
+            // if(y > 1920){
+            //     y = 1920
+            // }
+            // else if(y < 0){
+            //     y = 0
+            // }
+            this.node.position  = cc.v2(x,this.node.position.y)
+        }
+    },
+
     onPlayAnimation: function (event) {
         if(Global.DataBus.gameBegin){
-            this.node.position  = event.getLocation()
+            var pos = event.getLocation()
+            var x = pos.x
+            var y = pos.y
+            if(pos.x > 1080){
+                x = 1080
+            }
+            else if(pos.x < 0){
+                x = 0
+            }
+           
+            if(pos.y > 1920){
+                y = 1920
+            }
+            else if(pos.y < 0){
+                y = 0
+            }
+            this.node.position  = cc.v2(x,y)
+        console.log("=============onLoad,x,y",pos.x,pos.y)
         }
     },
 

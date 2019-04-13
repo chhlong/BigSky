@@ -62,6 +62,9 @@ cc.Class({
         this.onRegisteredEvent();
     },
 
+    start: function(){
+    },
+
     onRegisteredEvent: function () {
         this.StartPanel.on(cc.Node.EventType.TOUCH_END, this.StartHideMainUI.bind(this));
     },

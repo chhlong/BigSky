@@ -26,6 +26,8 @@ cc.Class({
 
     onLoad: function () {
         Global.BulletMgr = this
+        // cc.director.getScheduler().setTimeScale(0.1)
+
     },
 
     SetData: function () {
@@ -94,7 +96,7 @@ cc.Class({
 
     AddBullet: function(prefabName) {
         var self = this;
-        cc.log(cc.director.getTotalFrames() + ",prefabName = " + prefabName)
+        // cc.log(cc.director.getTotalFrames() + ",prefabName = " + prefabName)
         cc.loader.loadRes("prefabs/" + prefabName, function (err, prefab) {
             var newBullet = cc.instantiate(prefab);
             newBullet.parent = self.bullets;
