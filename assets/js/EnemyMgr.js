@@ -24,8 +24,6 @@ cc.Class({
         this._flushTimers = new Array(length).fill(0)
         this._flushCount = new Array(length).fill(0)
         cc.log("this._phase[pid] = " + this._phase[pid].killNums)
-        cc.log("this.length = " + length)
-        cc.log("this._flushTimers = " + this._flushTimers.length)
         Global.StageView.setStage(id)
     },
 

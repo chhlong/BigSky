@@ -68,7 +68,27 @@ cc.Class({
     },
 
     start: function(){
-        Global.EnemyMgr.setStage(0,0)
+        if(CC_WECHATGAME){
+            console.log("111111value = ")
+            try {
+                const value = wx.getStorageSync('stage')
+                if (value) {
+                    console.log("stage = " + value)
+                    Global.EnemyMgr.setStage(value,0)
+                }
+                else
+                {
+                    console.log("stage = " + 0)
+                    Global.EnemyMgr.setStage(0,0)
+                }
+            }
+            catch(e){
+            }
+        }
+        else
+        {
+            Global.EnemyMgr.setStage(0,0)
+        }
     },
 
     onRegisteredEvent: function () {

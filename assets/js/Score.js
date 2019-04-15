@@ -37,6 +37,13 @@ cc.Class({
         {
             cc.log("关卡结算, count = " + count)
             Global.EnemyMgr.setStage(sid + 1, 1)
+            if(CC_WECHATGAME){
+                try {
+                    wx.setStorageSync('stage', sid + 1)
+                }
+                catch(e){
+                }
+            }
             Global.GameOver.finishGame(true)
         }
     },

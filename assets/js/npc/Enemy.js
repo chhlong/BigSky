@@ -24,11 +24,7 @@ cc.Class({
         this.hp = monster.hp
         this.node.position = cc.v2(posx, 1920);
         this.rigidbody.gravityScale = monster.gravityScale
-        cc.log("orignalSpeed = " + orignalSpeed)
-        cc.log("angle = " + angle)
         this.rigidbody.linearVelocity = cc.v2(orignalSpeed* Math.cos(angle), orignalSpeed* Math.sin(angle));
-        cc.log("linearVelocity.x = " + this.rigidbody.linearVelocity.x)
-        cc.log("linearVelocity.y = " + this.rigidbody.linearVelocity.y)
         this.rigidbody.fixedRotation = false
     },
 

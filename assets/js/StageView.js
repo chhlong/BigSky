@@ -16,8 +16,6 @@ cc.Class({
 
     setStage: function(id) {
         var maxId = Global.stageConfig.length
-        cc.log("maxId," + maxId)
-        cc.log("id," + id)
         if(id == 0){
             this.stages[0].string = 1
             this.stages[1].string = 2
