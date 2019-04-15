@@ -19,14 +19,22 @@ cc.Class({
 
     },
 
-    onLoad: function () {
+    setData: function(skillConfig) {
+        this.damage = skillConfig.damage
     },
 
-    start: function() {
+    setAngle: function(skillConfig, angle){
+        var orignalSpeed = skillConfig.speed
+        this.rigidbody.linearVelocity = cc.v2(orignalSpeed* Math.cos(angle / 180.0 *Math.PI), orignalSpeed* Math.sin(angle / 180.0 *Math.PI));
+    },
+
+    onLoad: function() {
+       
+    },
+
+    start: function(){
         this.player = cc.find("Player")
         this.node.position = cc.v2(this.player.position.x, this.player.position.y + 60);
-        this.rigidbody.linearVelocity = cc.v2(0, 600);
-
         var anim = this.getComponent(cc.Animation);
         anim.play(anim._clips[0]._name)
     },
@@ -44,22 +52,19 @@ cc.Class({
         {
             Global.ScoreLbl.AddScore()
             var pos = otherCollider.node.position
-            // cc.log("pos.x = "+ pos.x + ",pos.y = " + pos.y)
             Global.BoomMgr.AddBoom(pos.x, pos.y)
             otherCollider.node.destroy()
-
         }
         else
         {
             var redColor = (enemy.hp / enemy.maxHp) * 255
             enemy.node.color = new cc.Color(255, redColor, redColor);
-            enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
+            // enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
         }
         if(CC_WECHATGAME){
-                wx.vibrateShort()
+            wx.vibrateShort()
         }
         this.node.destroy()
-
     },
 
 });

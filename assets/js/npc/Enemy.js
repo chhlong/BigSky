@@ -19,14 +19,14 @@ cc.Class({
         var posx = Global.RandomNumBoth(50, 1000);
         var angle = -Math.PI *Math.random();
         var monster = window.Global.monsterConfig[id]
-        var orginalSpeed = monster.orignalSpeed
+        var orignalSpeed = monster.orignalSpeed
         this.maxSpeed = monster.maxSpeed
         this.hp = monster.hp
         this.node.position = cc.v2(posx, 1920);
         this.rigidbody.gravityScale = monster.gravityScale
-        cc.log("orginalSpeed = " + orginalSpeed)
+        cc.log("orignalSpeed = " + orignalSpeed)
         cc.log("angle = " + angle)
-        this.rigidbody.linearVelocity = cc.v2(orginalSpeed* Math.cos(angle), orginalSpeed* Math.sin(angle));
+        this.rigidbody.linearVelocity = cc.v2(orignalSpeed* Math.cos(angle), orignalSpeed* Math.sin(angle));
         cc.log("linearVelocity.x = " + this.rigidbody.linearVelocity.x)
         cc.log("linearVelocity.y = " + this.rigidbody.linearVelocity.y)
         this.rigidbody.fixedRotation = false

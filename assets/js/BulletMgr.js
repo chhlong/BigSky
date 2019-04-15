@@ -94,18 +94,20 @@ cc.Class({
         
     },
 
-    AddBullet: function(prefabName) {
-        var self = this;
-        // cc.log(cc.director.getTotalFrames() + ",prefabName = " + prefabName)
-        cc.loader.loadRes("prefabs/" + prefabName, function (err, prefab) {
-            var newBullet = cc.instantiate(prefab);
-            newBullet.parent = self.bullets;
-        });
-    },
-
     AddSkill: function(skillId) {
-        var prefabName = window.Global.skillConfig[skillId].name
-        this.AddBullet(prefabName)
+        var skillConfig = window.Global.skillConfig[skillId]
+        var angles = window.Global.skillConfig[skillId].angle
+        var prefabName = skillConfig.name
+        var self = this;
+        for(let i = 0; i < angles.length; i++){
+            cc.loader.loadRes("prefabs/" + prefabName, function (err, prefab) {
+                var newBullet = cc.instantiate(prefab);
+                newBullet.parent = self.bullets;
+                newBullet.getComponent("Bullet").setData(skillConfig)
+                newBullet.getComponent("Bullet").setAngle(skillConfig, angles[i])
+            });
+        }
+        
     },
 
 });
