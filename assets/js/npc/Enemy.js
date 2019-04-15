@@ -8,31 +8,66 @@ cc.Class({
         },
         hp : 50,
         maxHp : 50,
+        maxSpeed:0,
     },
 
     onLoad: function () {
         this.rigidbody = this.getComponent(cc.RigidBody)
     },
 
-    start: function() {
-    	var posx = Global.RandomNumBoth(50, 1000);
-        var velx = Global.RandomNumBoth(-400, 400);
-        var vely = Global.RandomNumBoth(-200, -400);
-    	this.node.position = cc.v2(posx, 1920);
-        this.rigidbody.gravityScale = 0.1
+    setEntry: function(id){
+        var posx = Global.RandomNumBoth(50, 1000);
+        var angle = -Math.PI *Math.random();
+        var monster = window.Global.monsterConfig[id]
+        var orginalSpeed = monster.orignalSpeed
+        this.maxSpeed = monster.maxSpeed
+        this.hp = monster.hp
+        this.node.position = cc.v2(posx, 1920);
+        this.rigidbody.gravityScale = monster.gravityScale
+        cc.log("orginalSpeed = " + orginalSpeed)
+        cc.log("angle = " + angle)
+        this.rigidbody.linearVelocity = cc.v2(orginalSpeed* Math.cos(angle), orginalSpeed* Math.sin(angle));
+        cc.log("linearVelocity.x = " + this.rigidbody.linearVelocity.x)
+        cc.log("linearVelocity.y = " + this.rigidbody.linearVelocity.y)
         this.rigidbody.fixedRotation = false
-    	this.rigidbody.linearVelocity = cc.v2(velx, vely);
+    },
 
+    start: function() {
         var anim = this.getComponent(cc.Animation);
         anim.play(anim._clips[0]._name)
     },
 
     update: function() {
+        var pos = this.node.position
+        var x = pos.x
+        var y = pos.y
+        if(pos.x > 1080 + 40){
+            x = 1080
+        }
+        else if(pos.x < -40){
+            x = 0
+        }
+        this.node.position  = cc.v2(x,y)
     	if ( this.node.position.y < -40 ) {
       		this.node.position = cc.v2(this.node.position.x, 1920);
             var vely = Global.RandomNumBoth(-200, -400);
       		this.rigidbody.linearVelocity = cc.v2(this.rigidbody.linearVelocity.x, vely);
     	}
+        this.calSpeed()
+    },
+    
+    calSpeed: function() {
+        var maxSpeed = this.maxSpeed
+        var x = this.rigidbody.linearVelocity.x
+        var y = this.rigidbody.linearVelocity.y
+        var speed = Math.sqrt(x*x + y*y) 
+        if(speed > maxSpeed)
+        {
+            var radio = speed / maxSpeed
+            x = x / radio
+            y = y / radio
+            this.rigidbody.linearVelocity = cc.v2(x,y);
+        }
     },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
@@ -41,8 +76,7 @@ cc.Class({
             if(CC_WECHATGAME){
                 wx.vibrateShort()
             }
-            var gameOver = cc.find("GameOver").getComponent("GameOver")
-            gameOver.finishGame()
+            Global.GameOver.finishGame(false)
     	}
     },
     

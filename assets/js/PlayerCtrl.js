@@ -15,20 +15,18 @@ cc.Class({
          speed: cc.v2(0,0),
     },
 
-    onLoad() {
-         // open Accelerometer
-        console.log("=============onLoad,x,y",this.speed.x,this.speed.y)
-        cc.systemEvent.setAccelerometerEnabled(true);
-        cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
-    },
-
-    // onLoad: function () {
-    //     this.onRegisteredEvent();
+    // onLoad() {
+    //      // open Accelerometer
+    //     cc.systemEvent.setAccelerometerEnabled(true);
+    //     cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     // },
+
+    onLoad: function () {
+        this.onRegisteredEvent();
+    },
 
     onDeviceMotionEvent(event) { 
         //log event
-        console.log("event,x,y",event.acc.x,event.acc.y)
         this.speed.x = -event.acc.x;
         this.speed.y = event.acc.y;
     },
@@ -94,7 +92,6 @@ cc.Class({
                 y = 0
             }
             this.node.position  = cc.v2(x,y)
-        console.log("=============onLoad,x,y",pos.x,pos.y)
         }
     },
 

@@ -32,10 +32,22 @@ cc.Class({
         finishScoreLbl: {
             default: null,
             type: cc.Label,
+        },
+
+        GameOverView: {
+            default: null,
+            type: cc.Node,
+        },
+
+        BalanceView: {
+            default: null,
+            type: cc.Node,
         }
+
     },
 
     onLoad: function () {
+        Global.GameOver = this
        this.node.active = false;
        this.node.on(cc.Node.EventType.TOUCH_END, this.onClickEvent.bind(this));
     },
@@ -54,8 +66,11 @@ cc.Class({
         Global.BulletMgr.SetData()
     },
 
-    finishGame: function(){
-    	cc.log("finishGame")
+    finishGame: function(isBalance){
+    	cc.log("finishGame, isBalance = ", isBalance)
+        this.BalanceView.active = isBalance
+        this.GameOverView.active = !isBalance
+        this.playerNode.active = true
 		this.node.active = true;
         this.finishScoreLbl.string = "Score : " + this.ScoreLbl.getComponent("Score").count
         Global.DataBus.gameOver = true

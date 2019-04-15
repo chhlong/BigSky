@@ -51,6 +51,11 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
+
+        StageView: {
+            default: null,
+            type: cc.Node,
+        },
         
     },
 
@@ -63,6 +68,7 @@ cc.Class({
     },
 
     start: function(){
+        Global.EnemyMgr.setStage(0,0)
     },
 
     onRegisteredEvent: function () {
@@ -74,6 +80,8 @@ cc.Class({
         this.StartPanel.active = false;
         Global.DataBus.gameBegin = true;
         this.MainUI.IsHiding = false;
+        var sid = Global.EnemyMgr._stageId
+        Global.EnemyMgr.setStage(sid,0)
     },
 
     StartHideMainUI: function (event) {
@@ -89,6 +97,7 @@ cc.Class({
             var scaleTo1 = cc.scaleTo(1, 0, 0).easing(cc.easeBounceInOut());;
             var scaleTo2 = cc.scaleTo(1, 0, 0).easing(cc.easeBounceInOut());;
             var scaleTo3 = cc.scaleTo(1, 1, 1).easing(cc.easeBounceInOut());;
+            var scaleTo4 = cc.scaleTo(1, 0, 0).easing(cc.easeBounceInOut());;
             this.TopBtns.runAction(topTo);
             this.BottomBtns.runAction(bottomTo);
             this.LeftBtns.runAction(leftTo);
@@ -96,6 +105,7 @@ cc.Class({
             this.MainTitle.runAction(scaleTo1);
             this.StartTips.runAction(scaleTo2);
             this.ScoreLbl.runAction(scaleTo3);
+            this.StageView.runAction(scaleTo4);
             Global.performWithDelay(this, 1, this.FinishHideMainUI)
     	}
     },
@@ -119,14 +129,16 @@ cc.Class({
             var rightTo = cc.moveBy(1, -250, 0).easing(cc.easeBounceInOut());
             var scale1To = cc.scaleTo(1, 2.5, 2.5).easing(cc.easeBounceInOut());;
             var scale2To = cc.scaleTo(1, 2.5, 2.5).easing(cc.easeBounceInOut());;
-            var scaleTo3 = cc.scaleTo(1, 0, 0).easing(cc.easeBounceInOut());;
+            var scale3To = cc.scaleTo(1, 0, 0).easing(cc.easeBounceInOut());;
+            var scale4To = cc.scaleTo(1, 1, 1).easing(cc.easeBounceInOut());;
             this.TopBtns.runAction(topTo);
             this.BottomBtns.runAction(bottomTo);
             this.LeftBtns.runAction(leftTo);
             this.RightBtns.runAction(rightTo);
             this.MainTitle.runAction(scale1To);
             this.StartTips.runAction(scale2To);
-            this.ScoreLbl.runAction(scaleTo3);
+            this.ScoreLbl.runAction(scale3To);
+            this.StageView.runAction(scale4To);
             Global.performWithDelay(this, 1, this.FinishShowMainUI)
         }
     },

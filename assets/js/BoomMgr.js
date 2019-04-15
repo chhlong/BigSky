@@ -15,7 +15,6 @@ cc.Class({
             var newEntry = cc.instantiate(prefab);
             newEntry.parent = self.node;
             newEntry.position = cc.v2(posx, posy);
-            cc.log("posx = "+ posx + ",posy = " + posy)
         });
     },
 
