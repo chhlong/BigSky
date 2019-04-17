@@ -8,7 +8,7 @@ cc.Class({
         },
         collider: {
             default: null,
-            type: cc.PhysicsPolygonCollider,
+            type: cc.PhysicsBoxCollider,
         },
         anim: {
             default: null,
@@ -21,7 +21,7 @@ cc.Class({
 
     onLoad: function () {
         this.rigidbody = this.getComponent(cc.RigidBody)
-        this.collider = this.getComponent(cc.PhysicsPolygonCollider)
+        this.collider = this.getComponent(cc.PhysicsBoxCollider)
     },
 
     doHurtAni: function(){
