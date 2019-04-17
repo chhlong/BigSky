@@ -2,13 +2,18 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-      
+        // unused: [],
+        // used: [],
     },
 
     onLoad: function () {
         Global.BoomMgr = this
     },
 
+    start: function() {
+
+    },
+    
     AddBoom: function(posx, posy) {
         var self = this;
         cc.loader.loadRes("prefabs/" + Global.DataBus.curPlayerName + "_Boom", function (err, prefab) {

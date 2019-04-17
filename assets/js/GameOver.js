@@ -62,7 +62,6 @@ cc.Class({
         if(Global.curPlayer.skillId > 3){
             Global.curPlayer.skillId = 1
         }
-        cc.log("Global.curPlayer.skillId = " + Global.curPlayer.skillId )
         Global.BulletMgr.SetData()
     },
 

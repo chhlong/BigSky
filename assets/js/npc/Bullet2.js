@@ -24,11 +24,9 @@ cc.Class({
         this.timer += dt
         this.damageTimer += dt
         if ( this.timer > 8 ) {
-            cc.log("this.timer = "+this.timer)
             Global.BulletMgr.enabled = true
             Global.BulletMgr.SetData()
             this.node.destroy()
-            cc.log("22this.timer = ")
         }
         if(this.damageTimer > 0.2){
             for(var key in this.enemyDic){
@@ -71,7 +69,7 @@ cc.Class({
         else
         {
             var redColor = (enemy.hp / enemy.maxHp) * 255
-            enemy.node.color = new cc.Color(255, redColor, redColor);
+            enemy.node.color = new cc.Color(255, redColor, redColor, 255);
             enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
         }
     }

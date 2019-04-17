@@ -19,15 +19,12 @@ cc.Class({
     },
 
     update: function(dt) {
-        cc.log("this.node.position = " + this.node.position.x + ", y = " + this.node.position.y)
         this.timer += dt
         if ( this.timer > 8 ) {
-            cc.log("this.timer = "+this.timer)
             this.player.active = true
             Global.BulletMgr.enabled = true
             Global.BulletMgr.SetData()
             this.node.destroy()
-            cc.log("22this.timer = ")
         }
     },
 
@@ -44,14 +41,13 @@ cc.Class({
         {
             Global.ScoreLbl.AddScore()
             var pos = otherCollider.node.position
-            cc.log("pos.x = "+ pos.x + ",pos.y = " + pos.y)
             Global.BoomMgr.AddBoom(pos.x, pos.y)
             otherCollider.node.destroy()
         }
         else
         {
             var redColor = (enemy.hp / enemy.maxHp) * 255
-            enemy.node.color = new cc.Color(255, redColor, redColor);
+            enemy.node.color = new cc.Color(255, redColor, redColor, 255);
             enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
         }
     },

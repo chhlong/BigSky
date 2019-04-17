@@ -44,8 +44,6 @@ cc.Class({
         this._skilldurTimer = 0
         this._skilldurTime = window.Global.skillConfig[bid].durTime
         this.enabled = true
-        cc.log("this._skillcdTime = " + this._skillcdTime)
-        cc.log("this._skilldurTime = " + this._skilldurTime)
     },
 
     update: function(dt) {

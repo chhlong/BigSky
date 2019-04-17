@@ -2,9 +2,17 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-       rigidbody: {
+        rigidbody: {
             default: null,
             type: cc.RigidBody,
+        },
+        collider: {
+            default: null,
+            type: cc.PhysicsPolygonCollider,
+        },
+        anim: {
+            default: null,
+            type: cc.Animation,
         },
         hp : 50,
         maxHp : 50,
@@ -13,6 +21,12 @@ cc.Class({
 
     onLoad: function () {
         this.rigidbody = this.getComponent(cc.RigidBody)
+        this.collider = this.getComponent(cc.PhysicsPolygonCollider)
+    },
+
+    doHurtAni: function(){
+        var animState = this.anim.play(this.anim._clips[1]._name)
+        animState.repeatCount = 2
     },
 
     setEntry: function(id){
@@ -25,12 +39,13 @@ cc.Class({
         this.node.position = cc.v2(posx, 1920);
         this.rigidbody.gravityScale = monster.gravityScale
         this.rigidbody.linearVelocity = cc.v2(orignalSpeed* Math.cos(angle), orignalSpeed* Math.sin(angle));
-        this.rigidbody.fixedRotation = false
+        this.rigidbody.fixedRotation = true
+        this.collider.resititution = 0
     },
 
     start: function() {
-        var anim = this.getComponent(cc.Animation);
-        anim.play(anim._clips[0]._name)
+        this.anim = this.getComponent(cc.Animation);
+        this.anim.play(this.anim._clips[0]._name)
     },
 
     update: function() {

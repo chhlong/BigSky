@@ -14,7 +14,7 @@ cc.Class({
         anim.play(anim._clips[0]._name)
     },
 
-    destroySelf: function() {
+    DestroySelf: function() {
         cc.log("destroySelf")
         this.node.destroy()
     }

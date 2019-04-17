@@ -42,14 +42,13 @@ cc.Class({
         {
             Global.ScoreLbl.AddScore()
             var pos = otherCollider.node.position
-            cc.log("pos.x = "+ pos.x + ",pos.y = " + pos.y)
             Global.BoomMgr.AddBoom(pos.x, pos.y)
             otherCollider.node.destroy()
         }
         else
         {
             var redColor = (enemy.hp / enemy.maxHp) * 255
-            enemy.node.color = new cc.Color(255, redColor, redColor);
+            enemy.node.color = new cc.Color(255, redColor, redColor, 255);
             enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
         }
         this.node.destroy()

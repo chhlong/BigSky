@@ -48,7 +48,6 @@ cc.Class({
     AddEnemy: function(id) {
         var self = this;
         var monster = window.Global.monsterConfig[id]
-        cc.log("AddEnemy = " + monster.name)
         cc.loader.loadRes("prefabs/" + monster.name, function (err, prefab) {
             var entry = cc.instantiate(prefab);
             entry.parent = self.node;

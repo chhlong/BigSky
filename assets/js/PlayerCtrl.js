@@ -96,11 +96,9 @@ cc.Class({
     },
 
     changeHero: function(playerName) {
-        cc.log("playerName = " + playerName)
         cc.log("Global.curPlayer = " + Global.curPlayer)
         if(Global.curPlayer != null && Global.curPlayer.node.name != playerName)
         {
-            cc.log("11Global.curPlayer = " + Global.curPlayer.node.name)
             Global.curPlayer.node.destroy()
             Global.curPlayer = null;
             Global.DataBus.curPlayerName = playerName

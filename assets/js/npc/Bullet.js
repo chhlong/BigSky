@@ -48,17 +48,21 @@ cc.Class({
     onBeginContact: function (contact, selfCollider, otherCollider) {
         var enemy = otherCollider.getComponent("Enemy")
         enemy.hp = enemy.hp - this.damage
+        enemy.doHurtAni()
+        var worldManifold = contact.getWorldManifold();
+        var points = worldManifold.points;
+        var pos = points[0]
+        Global.BoomMgr.AddBoom(pos.x, pos.y)
         if (enemy.hp <= 0) 
         {
             Global.ScoreLbl.AddScore()
-            var pos = otherCollider.node.position
-            Global.BoomMgr.AddBoom(pos.x, pos.y)
+            
             otherCollider.node.destroy()
         }
         else
         {
             var redColor = (enemy.hp / enemy.maxHp) * 255
-            enemy.node.color = new cc.Color(255, redColor, redColor);
+            enemy.node.color = new cc.Color(255, redColor, redColor, 255);
             // enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
         }
         if(CC_WECHATGAME){
