@@ -24,9 +24,36 @@ cc.Class({
         this.collider = this.getComponent(cc.PhysicsBoxCollider)
     },
 
+    onIdle: function() {
+        this.anim.play(this.anim._clips[0]._name)
+    },
+
+    doHurt: function(damage, contact){
+        this.hp = this.hp - damage
+        var redColor = (this.hp / this.maxHp) * 255
+        var color = new cc.Color(255, redColor, redColor);
+        this.node.color = color
+        this.doHurtAni()
+        var worldManifold = contact.getWorldManifold();
+        var points = worldManifold.points;
+        var pos = points[0]
+        Global.BoomMgr.AddBoom(pos.x, pos.y)
+        if(CC_WECHATGAME){
+            wx.vibrateShort()
+        }
+        if (this.hp <= 0) 
+        {
+            Global.ScoreLbl.AddScore()
+            this.node.destroy()
+        }
+    },
+
     doHurtAni: function(){
-        var animState = this.anim.play(this.anim._clips[1]._name)
-        animState.repeatCount = 2
+        // var scaleTo = cc.scaleTo(0.2, 1.2, 1.2).easing(cc.easeBounceInOut());;
+        // this.node.stopAllActions();
+        // this.node.runAction(scaleTo);
+        this.anim.play(this.anim._clips[1]._name)
+        // animState.repeatCount = 2
     },
 
     setEntry: function(id){
@@ -36,6 +63,7 @@ cc.Class({
         var orignalSpeed = monster.orignalSpeed
         this.maxSpeed = monster.maxSpeed
         this.hp = monster.hp
+        this.maxHp = monster.hp
         this.node.position = cc.v2(posx, 1920);
         this.rigidbody.gravityScale = monster.gravityScale
         this.rigidbody.linearVelocity = cc.v2(orignalSpeed* Math.cos(angle), orignalSpeed* Math.sin(angle));

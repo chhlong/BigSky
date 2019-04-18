@@ -58,6 +58,7 @@ cc.Class({
 
     damageEnemy: function(enemy){
         enemy.hp = enemy.hp - this.damage
+        enemy.doHurtAni()
         if (enemy.hp <= 0) 
         {
             Global.ScoreLbl.AddScore()
@@ -65,12 +66,6 @@ cc.Class({
             Global.BoomMgr.AddBoom(pos.x, pos.y)
             delete this.enemyDic[enemy.node.uuid]
             enemy.node.destroy()
-        }
-        else
-        {
-            var redColor = (enemy.hp / enemy.maxHp) * 255
-            enemy.node.color = new cc.Color(255, redColor, redColor, 255);
-            enemy.rigidbody.linearVelocity = cc.v2(enemy.rigidbody.linearVelocity.x, -100);
         }
     }
     

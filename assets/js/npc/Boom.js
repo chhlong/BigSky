@@ -15,7 +15,6 @@ cc.Class({
     },
 
     DestroySelf: function() {
-        cc.log("destroySelf")
         this.node.destroy()
     }
 });
